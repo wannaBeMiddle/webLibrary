@@ -54,7 +54,7 @@ class Kernel
 		require_once "app/controllers/{$controllerName}.php";
 		if(!is_null($modelName))
 		{
-			require_once "app/model/{$modelName}.php";
+			require_once "app/models/{$modelName}.php";
 		}
 		$namespace = '\app\controllers\\' . $controllerName;
 		$controller = new $namespace();

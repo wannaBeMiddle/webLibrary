@@ -24,7 +24,7 @@ CREATE TABLE IF NOT EXISTS `zhorapbg_db`.`users` (
   `hashedPassword` VARCHAR(45) NOT NULL,
   `regDate` TIMESTAMP NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE)
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC) )
 ENGINE = InnoDB;
 
 
@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS `zhorapbg_db`.`products` (
   `cost` VARCHAR(45) NOT NULL,
   `imagePath` VARCHAR(45) NOT NULL DEFAULT '/upload/noImage.jpg',
   PRIMARY KEY (`id`),
-  UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE)
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC) )
 ENGINE = InnoDB;
 
 
@@ -52,8 +52,8 @@ CREATE TABLE IF NOT EXISTS `zhorapbg_db`.`orders` (
   `isDelivered` TINYINT NOT NULL DEFAULT 0,
   `price` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE,
-  INDEX `fk_orders_users_idx` (`user` ASC) VISIBLE,
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC) ,
+  INDEX `fk_orders_users_idx` (`user` ASC) ,
   CONSTRAINT `fk_orders_users`
     FOREIGN KEY (`user`)
     REFERENCES `zhorapbg_db`.`users` (`id`)
@@ -70,9 +70,9 @@ CREATE TABLE IF NOT EXISTS `zhorapbg_db`.`baskets` (
   `product` INT UNSIGNED NOT NULL,
   `order` INT UNSIGNED NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE,
-  INDEX `fk_baskets_products1_idx` (`product` ASC) VISIBLE,
-  INDEX `fk_baskets_orders1_idx` (`order` ASC) VISIBLE,
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC) ,
+  INDEX `fk_baskets_products1_idx` (`product` ASC) ,
+  INDEX `fk_baskets_orders1_idx` (`order` ASC) ,
   CONSTRAINT `fk_baskets_products1`
     FOREIGN KEY (`product`)
     REFERENCES `zhorapbg_db`.`products` (`id`)
