@@ -23,38 +23,41 @@ class Kernel
 		$controllerExist = file_exists("app/controllers/{$val['controller']}Controller.php");
 		$modelExist = file_exists("app/models/{$val['controller']}Model.php");
 
-		if($is404 OR !$controllerExist OR !$modelExist)
+		if($is404 OR !$controllerExist)
 		{
-			$message = 'Route wasnt found';
+			$message = 'Error - Route wasnt found';
 			if(!$controllerExist)
 			{
-				$message = 'Controller does not exist';
-			}elseif(!$modelExist)
-			{
-				$message = 'Model does not exist';
+				$message = 'Error - Controller does not exist';
 			}
-			logWrite($message, "coreErrors");
 			self::notFound();
 		}else
 		{
 			$controllerName = "{$val['controller']}Controller";
-
-			$modelName = "{$val['controller']}Model";
+			$modelName = null;
 
 			$actionName = "{$val['action']}Action";
+			if(!$modelExist)
+			{
+				$message = 'Warning -- Model does not exist';
+				logWrite($message, "coreErrors");
+			}else
+			{
+				$modelName = "{$val['controller']}Model";
+			}
 			self::controllerCall($controllerName, $modelName, $actionName, $params);
 		}
 	}
 
 	static public function controllerCall(string $controllerName, ?string $modelName, ?string $actionName, ?array $params)
 	{
-		require_once "app/controllers/{$controllerName}Controller.php";
+		require_once "app/controllers/{$controllerName}.php";
 		if(!is_null($modelName))
 		{
-			require_once "app/model/{$modelName}Model.php";
+			require_once "app/model/{$modelName}.php";
 		}
-
-		$controller = new $controllerName();
+		$namespace = '\app\controllers\\' . $controllerName;
+		$controller = new $namespace();
 
 		if(method_exists($controller, $actionName))
 		{

@@ -13,7 +13,7 @@ class Router
 		{
 			$url = substr($url, 0, $pos);
 		}
-		if($url = '/')
+		if($url == '/')
 		{
 			return [
 				'URIParams' => [

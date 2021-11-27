@@ -1,0 +1,8 @@
+.menu-button {
+    box-sizing: border-box;
+    border-bottom: 2px solid black;
+    transition: all 500ms ease-out;
+}
+.menu-button:hover {
+    border-color: white;
+}
