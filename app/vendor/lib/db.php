@@ -66,6 +66,11 @@ class db
 					'status' => true,
 					'id' => $this->pdo->lastInsertId()
 				];
+			}else
+			{
+				return [
+					'status' => true
+				];
 			}
 		}
 		return [
@@ -97,5 +102,25 @@ class db
 		$sql = "SELECT * FROM `users` WHERE `id` = :id";
 		$user = $this->execPDO($sql, [$id]);
 		return $user;
+	}
+
+	final public function getAllTableById(string $table, int $id) : array
+	{
+		$id = intval($id);
+		if($table == 'users')
+		{
+			return $this->getUserInfo($id);
+		}
+		$table = "`" . str_replace('`', '``', $table) . "`";
+		$sql = "SELECT * FROM {$table} WHERE `id`=:id";
+		$response = $this->execPDO($sql, [$id]);
+		if($response['status'])
+		{
+			return $response;
+		}
+		return [
+			'status' => false,
+			'description' => 'Undefined error'
+		];
 	}
 }

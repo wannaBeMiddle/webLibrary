@@ -4,8 +4,16 @@ namespace app\models;
 
 class mainModel extends \app\vendor\Model
 {
-	public function index()
+	public function index() : array
 	{
-		$this->db->getUserInfo(1);
+		$sql = "SELECT * FROM `products`";
+		$response = $this->db->execPDO($sql);
+		if($response['status'])
+		{
+			return $response;
+		}
+		return [
+			'status' => false
+		];
 	}
 }

@@ -14,7 +14,7 @@ class mainController extends \app\vendor\Controller
 
 	public function indexAction()
 	{
-		$this->model->index();
-		self::$view->render('main', true);
+		$response = $this->model->index();
+		self::$view->render('main', true, $response);
 	}
 }

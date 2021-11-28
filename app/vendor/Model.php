@@ -15,7 +15,7 @@ class Model
 		$this->setProps();
 	}
 
-	public function setProps()
+	final public function setProps()
 	{
 		require_once "app/vendor/lib/db.php";
 		require_once "app/vendor/lib/sessions.php";

@@ -16,7 +16,7 @@ class Kernel
 		self::prepareCallValues(false, $callValues['URIParams'], $callValues['callValues']);
 	}
 
-	static public function prepareCallValues( bool $is404, ?array $val, ?array $params) : void
+	static public function prepareCallValues( bool $is404, ?array $val = null, ?array $params = null) : void
 	{
 		$actionName = null;
 		$modelName = null;

@@ -22,10 +22,6 @@ class Router
 				]
 			];
 		}
-		if(!key_exists($url, $routes))
-		{
-			return [];
-		}
 
 		foreach ($routes as $key => $val)
 		{
