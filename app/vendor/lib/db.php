@@ -25,7 +25,7 @@ class db
 		return static::$instances[$class];
 	}
 
-	public function setPDO()
+	final public function setPDO()
 	{
 		$config = require_once "app/configs/config.php";
 		$dsn = "{$config['PDO']['driver']}:host={$config['PDO']['host']};dbname={$config['PDO']['dbName']};charset={$config['PDO']['charset']}";
@@ -37,7 +37,7 @@ class db
 		$this->pdo = new \PDO($dsn, $config['PDO']['dbUser'], $config['PDO']['dbPassword'], $opt);
 	}
 
-	public function execPDO(string $sql, array $arParams = []) : array
+	final public function execPDO(string $sql, array $arParams = []) : array
 	{
 		$status = true;
 		preg_match_all('/:([A-Za-z0-9_]+)/', $sql, $matches);
@@ -74,7 +74,7 @@ class db
 		];
 	}
 
-	static public function getRequestType(string $sql)
+	final static public function getRequestType(string $sql)
 	{
 		preg_match('/^([A-Za-z]+)/', $sql, $matches);
 		if(count($matches) > 0)
@@ -84,7 +84,7 @@ class db
 		return false;
 	}
 
-	public function getUserInfo(int $id) : array
+	final public function getUserInfo(int $id) : array
 	{
 		$id = intval($id);
 		if($id < 0)
@@ -96,8 +96,6 @@ class db
 		}
 		$sql = "SELECT * FROM `users` WHERE `id` = :id";
 		$user = $this->execPDO($sql, [$id]);
-		$sql = "SELECT * FROM `orders` WHERE `user`=:id";
-		$orders = $this->execPDO($sql, [$id]);
-		return [];
+		return $user;
 	}
 }
