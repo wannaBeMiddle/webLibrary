@@ -5,19 +5,19 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
 -- -----------------------------------------------------
--- Schema zhorapbg_db
+-- Schema vasia1th_db
 -- -----------------------------------------------------
 
 -- -----------------------------------------------------
--- Schema zhorapbg_db
+-- Schema vasia1th_db
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `zhorapbg_db` DEFAULT CHARACTER SET utf8 ;
-USE `zhorapbg_db` ;
+CREATE SCHEMA IF NOT EXISTS `vasia1th_db` DEFAULT CHARACTER SET utf8 ;
+USE `vasia1th_db` ;
 
 -- -----------------------------------------------------
--- Table `zhorapbg_db`.`users`
+-- Table `vasia1th_db`.`users`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `zhorapbg_db`.`users` (
+CREATE TABLE IF NOT EXISTS `vasia1th_db`.`users` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `email` VARCHAR(45) NOT NULL,
   `phone` VARCHAR(45) NOT NULL,
@@ -29,9 +29,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `zhorapbg_db`.`products`
+-- Table `vasia1th_db`.`products`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `zhorapbg_db`.`products` (
+CREATE TABLE IF NOT EXISTS `vasia1th_db`.`products` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL,
   `cost` VARCHAR(45) NOT NULL,
@@ -42,9 +42,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `zhorapbg_db`.`orders`
+-- Table `vasia1th_db`.`orders`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `zhorapbg_db`.`orders` (
+CREATE TABLE IF NOT EXISTS `vasia1th_db`.`orders` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `createDate` TIMESTAMP NOT NULL,
   `isPayed` TINYINT NOT NULL DEFAULT 0,
@@ -56,16 +56,16 @@ CREATE TABLE IF NOT EXISTS `zhorapbg_db`.`orders` (
   INDEX `fk_orders_users_idx` (`user` ASC) ,
   CONSTRAINT `fk_orders_users`
     FOREIGN KEY (`user`)
-    REFERENCES `zhorapbg_db`.`users` (`id`)
+    REFERENCES `vasia1th_db`.`users` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `zhorapbg_db`.`baskets`
+-- Table `vasia1th_db`.`baskets`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `zhorapbg_db`.`baskets` (
+CREATE TABLE IF NOT EXISTS `vasia1th_db`.`baskets` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `product` INT UNSIGNED NOT NULL,
   `order` INT UNSIGNED NOT NULL,
@@ -75,12 +75,12 @@ CREATE TABLE IF NOT EXISTS `zhorapbg_db`.`baskets` (
   INDEX `fk_baskets_orders1_idx` (`order` ASC) ,
   CONSTRAINT `fk_baskets_products1`
     FOREIGN KEY (`product`)
-    REFERENCES `zhorapbg_db`.`products` (`id`)
+    REFERENCES `vasia1th_db`.`products` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_baskets_orders1`
     FOREIGN KEY (`order`)
-    REFERENCES `zhorapbg_db`.`orders` (`id`)
+    REFERENCES `vasia1th_db`.`orders` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;

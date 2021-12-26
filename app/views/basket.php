@@ -8,7 +8,7 @@
 							<?=$item['name']?>
                         </div>
                         <div class="card-body">
-                            <p class="card-text">Количество: <?=$item['count']?>шт.</p>
+                            <p class="card-text">Количество: <?=$item['count']?++$item['count']:1?>шт.</p>
                             <p class="card-text"><?=number_format(str_replace(' ', '', $item['cost']), 0, ',', ' ')?> ₽</p>
                             <a href="/basket/delete/<?=$item['id']?>" class="btn btn-danger">Удалить из корзины</a>
                         </div>
