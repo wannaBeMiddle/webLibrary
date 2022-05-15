@@ -17,7 +17,9 @@
                     <p class="card-text">Издательство: <?=$book['publisher']?></p>
                     <p class="card-text">Автор: <a href="#"><?="{$book['name']} {$book['surname']} {$book['lastname']}"?></a></p>
                     <p class="card-text">Рейтинг: <?=$book['rating']?></p>
-                    <p class="card-text">Описание: Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum</p>
+                    <?if($book['preview']):?>
+                        <p class="card-text">Описание: <?=$book['preview']?></p>
+                    <?endif;?>
                     <a href="#" id="<?=$book['idbook']?>_btn" class="btn">Переход куда-нибудь</a>
                 </div>
             </div>
