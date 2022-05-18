@@ -30,17 +30,23 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#">Издательства</a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
-                        Мой профиль
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#">Настройки</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="#">Мои книги</a></li>
-                        <li><a class="dropdown-item" href="#">Забронировать книгу</a></li>
-                    </ul>
-                </li>
+                <?if(!$arResult['USER']['AUTH']):?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/webLibrary/auth/">Войти</a>
+                    </li>
+                <?else:?>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+                            Мой профиль
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">Настройки</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">Мои книги</a></li>
+                            <li><a class="dropdown-item" href="#">Забронировать книгу</a></li>
+                        </ul>
+                    </li>
+                <?endif;?>
             </ul>
         </div>
     </div>

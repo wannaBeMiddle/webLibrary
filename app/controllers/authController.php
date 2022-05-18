@@ -2,21 +2,20 @@
 
 namespace app\controllers;
 
-use app\models\mainModel;
+use app\models\authModel;
 use \app\vendor\Controller;
 
-class mainController extends Controller
+class authController extends Controller
 {
 	public function __construct()
 	{
-		$this->model = new mainModel();
+		$this->model = new authModel();
 		parent::__construct();
 	}
 
 	public function indexAction()
 	{
-		$response = $this->model->index();
 		$response['USER'] = $this->model->setHeaderResults();
-		self::$view->render('main', true, $response);
+		self::$view->render('auth', true, $response);
 	}
 }
