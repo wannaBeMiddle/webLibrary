@@ -63,4 +63,9 @@ class sessions
 			}
 		}
 	}
+
+	public function killUserSession()
+	{
+		unset($_SESSION['USER']);
+	}
 }

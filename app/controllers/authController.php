@@ -18,4 +18,14 @@ class authController extends Controller
 		$response['USER'] = $this->model->setHeaderResults();
 		self::$view->render('auth', true, $response);
 	}
+
+	public function doAction()
+	{
+		$this->model->doAuth();
+	}
+
+	public function logoutAction()
+	{
+		$this->model->logout();
+	}
 }

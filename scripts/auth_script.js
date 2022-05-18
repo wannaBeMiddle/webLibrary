@@ -3,10 +3,35 @@ $( "#authForm" ).submit(function( event ) {
     if($('#inputLogin').val() != "" && $('#inputPassword').val() != "")
     {
         $("#alert").addClass("d-none");
-        $.ajax();
+        $.ajax({
+            url: '/webLibrary/auth/do/',
+            method: 'post',
+            dataType: 'json',
+            data: {
+                login: $('#inputLogin').val(),
+                password: $('#inputPassword').val()
+            },
+            success: function(data){
+                if(data.status === 'FAIL')
+                {
+                    message = '';
+                    data.errors.forEach(function(item, i, arr) {
+                        message += item + '<br>';
+                    });
+                    showErrors(message);
+                }else
+                {
+                    window.location.href = "/webLibrary/";
+                }
+            }
+        });
     }else
     {
-        $("#alert").html("Вы не ввели логин или пароль");
-        $("#alert").removeClass("d-none");
+        showErrors("Вы не ввели логин или пароль");
     }
 });
+function showErrors(error)
+{
+    $("#alert").html(error);
+    $("#alert").removeClass("d-none");
+}

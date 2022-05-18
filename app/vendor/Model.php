@@ -35,11 +35,12 @@ class Model
 	public function setHeaderResults()
 	{
 		$arResult = [];
-		$arResult['AUTH'] = $this->user->isAuth();
-		if($arResult['AUTH'])
+		$isAuth = $this->user->isAuth();
+		if($isAuth)
 		{
-			$arResult['USER'] = $this->sessions->getSession('USER');
+			$arResult = $this->sessions->getSession('USER');
 		}
+		$arResult['AUTH'] = $isAuth;
 		return $arResult;
 	}
 }
