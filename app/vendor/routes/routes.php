@@ -1,23 +1,33 @@
 <?php
 return [
-	'/webLibrary/' => [
+	'/' => [
 		'controller' => 'main',
 		'action' => 'index',
 		'notAuthAccess' => true
 	],
-	'/webLibrary/auth/' => [
+	'/auth/' => [
 		'controller' => 'auth',
 		'action' => 'index',
 		'notAuthAccess' => true
 	],
-	'/webLibrary/auth/do/' => [
+	'/auth/do/' => [
 		'controller' => 'auth',
 		'action' => 'do',
 		'notAuthAccess' => true
 	],
-	'/webLibrary/auth/logout/' => [
+	'/auth/logout/' => [
 		'controller' => 'auth',
 		'action' => 'logout',
+		'notAuthAccess' => true
+	],
+	'/reg/' => [
+		'controller' => 'reg',
+		'action' => 'index',
+		'notAuthAccess' => true
+	],
+	'/reg/do/' => [
+		'controller' => 'reg',
+		'action' => 'do',
 		'notAuthAccess' => true
 	],
 ];

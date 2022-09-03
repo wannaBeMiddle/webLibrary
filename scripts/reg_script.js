@@ -4,12 +4,20 @@ $( "#authForm" ).submit(function( event ) {
     {
         $("#alert").addClass("d-none");
         $.ajax({
-            url: '/auth/do/',
+            url: '/reg/do/',
             method: 'post',
             dataType: 'json',
             data: {
                 login: $('#inputLogin').val(),
-                password: $('#inputPassword').val()
+                password: $('#inputPassword').val(),
+                passwordRepeat: $('#inputPasswordRepeat').val(),
+                name: $('#inputName').val(),
+                surname: $('#inputSurname').val(),
+                lastname: $('#inputLastname').val(),
+                phone: $('#inputPhone').val(),
+                street: $('#inputStreet').val(),
+                building: $('#inputBuilding').val(),
+                apartments: $('#inputApartments').val(),
             },
             success: function(data){
                 if(data.status === 'FAIL')
@@ -21,7 +29,7 @@ $( "#authForm" ).submit(function( event ) {
                     showErrors(message);
                 }else
                 {
-                    window.location.href = "/";
+                    window.location.href = "/auth/";
                 }
             }
         });
@@ -35,3 +43,6 @@ function showErrors(error)
     $("#alert").html(error);
     $("#alert").removeClass("d-none");
 }
+$(function($) {
+    $("#inputPhone").mask("+7 (999) 999-9999",{placeholder:"_"});
+})

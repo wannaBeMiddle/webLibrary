@@ -30,4 +30,4 @@ $jsParams = json_encode($arResult['data']);
 <script>
     var jsParams = <?=$jsParams?>
 </script>
-<script src="/webLibrary/scripts/book_catalog_script.js?<?=time()?>"></script>
+<script src="/scripts/book_catalog_script.js?<?=time()?>"></script>

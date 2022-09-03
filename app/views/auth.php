@@ -13,10 +13,10 @@
                 <div id="emailHelp" class="form-text">Никуому не сообщайте свой пароль.</div>
             </div>
         </div>
-        <p>Еще нет аккаунта?<a href="/webLibrary/reg/">Зарегистрируйтесь!</a></p>
+        <p>Еще нет аккаунта?<a href="/reg/">Зарегистрируйтесь!</a></p>
         <button type="submit" class="btn btn-primary">Войти</button>
         <div class="alert alert-danger row-m-t d-none" role="alert" id="alert">
         </div>
     </form>
 </div>
-<script src="/webLibrary/scripts/auth_script.js?<?=time()?>"></script>
+<script src="/scripts/auth_script.js?<?=time()?>"></script>

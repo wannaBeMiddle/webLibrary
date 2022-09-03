@@ -24,6 +24,7 @@ class Model
 		require_once "app/vendor/lib/db.php";
 		require_once "app/vendor/lib/sessions.php";
 		require_once "app/vendor/lib/user.php";
+		require_once "app/vendor/lib/validate.php";
 		$this->db = db::getInstance();
 		$this->db->setPDO();
 		$this->sessions = new sessions();

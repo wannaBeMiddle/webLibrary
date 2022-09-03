@@ -58,6 +58,6 @@ class authModel extends Model
 	public function logout()
 	{
 		$this->sessions->killUserSession();
-		header('Location: /webLibrary/');
+		header('Location: /');
 	}
 }
