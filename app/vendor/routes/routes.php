@@ -30,4 +30,9 @@ return [
 		'action' => 'do',
 		'notAuthAccess' => true
 	],
+	'/filter/' => [
+		'controller' => 'main',
+		'action' => 'filter',
+		'notAuthAccess' => true
+	],
 ];

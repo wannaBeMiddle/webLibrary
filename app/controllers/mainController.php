@@ -19,4 +19,10 @@ class mainController extends Controller
 		$response['USER'] = $this->model->setHeaderResults();
 		self::$view->render('main', true, $response);
 	}
+
+	public function filterAction()
+	{
+		$response = $this->model->filter();
+		self::$view->render('main', true, $response);
+	}
 }
