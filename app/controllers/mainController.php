@@ -26,4 +26,9 @@ class mainController extends Controller
 		$response['USER'] = $this->model->setHeaderResults();
 		self::$view->render('main', true, $response);
 	}
+
+	public function getBookAction()
+	{
+		$this->model->getBook();
+	}
 }

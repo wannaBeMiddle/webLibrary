@@ -35,4 +35,9 @@ return [
 		'action' => 'filter',
 		'notAuthAccess' => true
 	],
+	'/book/get/' => [
+		'controller' => 'main',
+		'action' => 'getBook',
+		'notAuthAccess' => true
+	],
 ];

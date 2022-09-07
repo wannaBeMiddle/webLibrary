@@ -11,7 +11,7 @@ $.each(jsParams,function(index, book){
         btnClass = " btn-success";
         text = "Забронировать";
     }
-    btn = $('#'+book.idbook+'_btn')[0];
+    btn = $('#'+book.idbook+'')[0];
     btn.className += btnClass;
     btn.innerHTML = text;
 });
@@ -42,4 +42,28 @@ $("#accept_filter").on('click', function (e) {
     {
         window.location.href = url;
     }
+});
+$('.book_add').on('click', function (e) {
+    let book_id = e.target.id;
+
+    $.ajax({
+        url: '/book/get/',
+        method: 'post',
+        dataType: 'json',
+        data: {
+            book_id: book_id
+        },
+        success: function(data){
+            if(data.status === 'REDIRECT')
+            {
+                window.location.href = '/auth/';
+            }else if(data.status === 'OK')
+            {
+                e.target.classList.remove('btn-success');
+                e.target.classList.add('btn-danger');
+                e.target.classList.add('disabled');
+                e.target.innerHTML = "Книга занята до " + data.dateEnd;
+            }
+        }
+    });
 });

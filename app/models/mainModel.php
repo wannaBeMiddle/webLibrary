@@ -62,4 +62,31 @@ class mainModel extends Model
 		$response['smartFilter'] = $this->getSmartFilterParameters();
 		return $response;
 	}
+
+	public function getBook()
+	{
+		$response = [];
+		$book_id = $_POST['book_id'];
+		$user_id = $this->sessions->getSession('USER')['id'];
+		if(!$user_id)
+		{
+			$response['status'] = 'REDIRECT';
+			echo json_encode($response, JSON_UNESCAPED_UNICODE);
+			die();
+		}
+		try {
+			$dateStart = date('Y-m-d');
+			$dateEnd = date('Y-m-d', strtotime($dateStart . ' + 14 days'));
+			$sql = "INSERT INTO `readings`(`dateStart`, `dateEnd`, `users_id`, `books_id`) VALUES (:dateStart, :dateEnd, :user, :book)";
+			$this->db->execPDO($sql, [$dateStart, $dateEnd, $user_id, $book_id]);
+			$response['status'] = 'OK';
+			$response['dateEnd'] = $dateEnd;
+			echo json_encode($response, JSON_UNESCAPED_UNICODE);
+		}catch (\Exception $e)
+		{
+			$response['status'] = 'FAIL';
+			echo json_encode($response, JSON_UNESCAPED_UNICODE);
+		}
+		die();
+	}
 }
