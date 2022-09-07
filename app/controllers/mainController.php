@@ -23,6 +23,7 @@ class mainController extends Controller
 	public function filterAction()
 	{
 		$response = $this->model->filter();
+		$response['USER'] = $this->model->setHeaderResults();
 		self::$view->render('main', true, $response);
 	}
 }

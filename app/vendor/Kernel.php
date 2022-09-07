@@ -30,6 +30,7 @@ class Kernel
 			{
 				$message = 'Error - Controller does not exist';
 			}
+			logWrite($message, "coreErrors");
 			self::notFound();
 		}else
 		{
