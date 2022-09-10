@@ -2,8 +2,6 @@
 
 namespace app\vendor;
 
-use Exception;
-
 class Kernel
 {
 	static public function init()
@@ -13,7 +11,13 @@ class Kernel
 		{
 			self::prepareCallValues(true);
 		}
-		self::prepareCallValues(false, $callValues['URIParams'], $callValues['callValues']);
+		if(isset($callValues['callValues']))
+		{
+			self::prepareCallValues(false, $callValues['URIParams'], $callValues['callValues']);
+		}else
+		{
+			self::prepareCallValues(false, $callValues['URIParams']);
+		}
 	}
 
 	static public function prepareCallValues( bool $is404, ?array $val = null, ?array $params = null) : void

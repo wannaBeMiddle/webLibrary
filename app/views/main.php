@@ -9,7 +9,7 @@
                 <div class="card-body">
                     <div class="mb-3">
                         <label for="year" class="form-label">Год написания</label>
-                        <input type="text" class="form-control" id="year" placeholder="Например... 2002" <?if($_GET['year']):?>value="<?=$_GET['year']?>"<?endif;?>>
+                        <input type="text" class="form-control" id="year" placeholder="Например... 2002" <?if(isset($_GET['year'])):?>value="<?=$_GET['year']?>"<?endif;?>>
                     </div>
                     <div class="mb-3">
                         <select class="form-select" aria-label="Default select example" id="publisher">
@@ -29,7 +29,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="rating" class="form-label">Рейтинг от</label>
-                        <input type="email" class="form-control" id="rating" placeholder="Например... 9.1" <?if($_GET['rating']):?>value="<?=$_GET['rating']?>"<?endif;?>>
+                        <input type="email" class="form-control" id="rating" placeholder="Например... 9.1" <?if(isset($_GET['rating'])):?>value="<?=$_GET['rating']?>"<?endif;?>>
                     </div>
                     <a id="accept_filter" class="btn btn-success">Применить фильтр</a>
                 </div>
