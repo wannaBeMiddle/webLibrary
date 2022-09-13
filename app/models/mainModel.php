@@ -67,7 +67,13 @@ class mainModel extends Model
 	{
 		$response = [];
 		$book_id = $_POST['book_id'];
-		$user_id = $this->sessions->getSession('USER')['id'];
+		if(isset($this->sessions->getSession('USER')['id']))
+		{
+			$user_id = $this->sessions->getSession('USER')['id'];
+		}else
+		{
+			$user_id = false;
+		}
 		if(!$user_id)
 		{
 			$response['status'] = 'REDIRECT';

@@ -51,7 +51,7 @@
                         <p class="card-text">Автор: <a href="#"><?="{$book['name']} {$book['surname']} {$book['lastname']}"?></a></p>
                         <p class="card-text">Рейтинг: <?=$book['rating']?></p>
                         <p class="card-text">Описание: <?=$book['preview']?:"Отсутствует."?></p>
-                        <a href="#" id="<?=$book['idbook']?>" class="btn book_add">Переход куда-нибудь</a>
+                        <a id="<?=$book['idbook']?>" class="btn book_add">Переход куда-нибудь</a>
                     </div>
                 </div>
             </div>
