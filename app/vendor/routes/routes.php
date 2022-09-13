@@ -40,4 +40,13 @@ return [
 		'action' => 'getBook',
 		'notAuthAccess' => true
 	],
+	'/books/' => [
+		'controller' => 'books',
+		'action' => 'index',
+		'notAuthAccess' => false
+	],'/books/edit/' => [
+		'controller' => 'books',
+		'action' => 'edit',
+		'notAuthAccess' => false
+	],
 ];

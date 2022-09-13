@@ -41,6 +41,11 @@
                             <?=$arResult['USER']['login']?>
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <?if($arResult['USER']['permissions'] == 1):?>
+                                <li><a class="dropdown-item" href="/books/">Учёт книг</a></li>
+                                <li><a class="dropdown-item" href="#">Пользователи</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                            <?endif;?>
                             <li><a class="dropdown-item" href="#">Настройки</a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href="#">Мои книги</a></li>

@@ -43,6 +43,7 @@ class authModel extends Model
 				'surname' => $user['surname'],
 				'lastname' => $user['lastname'],
 				'phone' => $user['phone'],
+				'permissions' => $user['permission']
 			];
 			$this->sessions->setSession('USER', $userParameters);
 		}
