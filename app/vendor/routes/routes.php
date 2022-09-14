@@ -44,9 +44,15 @@ return [
 		'controller' => 'books',
 		'action' => 'index',
 		'notAuthAccess' => false
-	],'/books/edit/' => [
+	],
+	'/books/edit/' => [
 		'controller' => 'books',
 		'action' => 'edit',
+		'notAuthAccess' => false
+	],
+	'/books/edit/do/' => [
+		'controller' => 'books',
+		'action' => 'editBook',
 		'notAuthAccess' => false
 	],
 ];

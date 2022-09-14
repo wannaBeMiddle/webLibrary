@@ -29,4 +29,11 @@ class booksController extends Controller
 		$response['LANGS'] = $this->model->getLangs();
 		self::$view->render('editbook', true, $response);
 	}
+
+	public function editBookAction()
+	{
+		$response['USER'] = $this->model->setHeaderResults();
+		$response[] = $this->model->editBook();
+		self::$view->render('editbook', true, $response);
+	}
 }

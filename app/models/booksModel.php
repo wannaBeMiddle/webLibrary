@@ -16,6 +16,10 @@ class booksModel extends Model
 	public function getBook()
 	{
 		$bookId = $_GET['id'];
+		if(!$bookId)
+		{
+			header('Location: /books/');
+		}
 		$sql = "SELECT `books`.`preview`, `books`.`idbook`, `books`.`name` as 'bookname', `books`.`preview_picture`, `books`.`year`, `books`.`pagesCount`, `books`.`rating`, `authors`.* , `langs`.`name` as 'lang', `langs`.`idlang`, `publishers`.`name` as 'publisher', `publishers`.`idpublisher`  FROM myLibrary.books JOIN `publishers` ON `books`.`publishers_id` = `publishers`.`idpublisher` JOIN `authors` ON `books`.`authors_id` = `authors`.`idauthor` JOIN `langs` ON `books`.`langs_id` = `langs`.`idlang` WHERE `books`.`idbook` = :id;";
 		return $this->db->execPDO($sql, [$bookId]);
 	}
@@ -36,5 +40,33 @@ class booksModel extends Model
 	{
 		$sql = "SELECT * FROM `langs`";
 		return $this->db->execPDO($sql);
+	}
+
+	public function editBook()
+	{
+		$bookName = $_POST['bookName'];
+		$bookId = $_POST['bookId'];
+		$year = $_POST['year'];
+		$pagesCount = $_POST['pagesCount'];
+		$rating = $_POST['rating'];
+		$publisher = $_POST['publisher'];
+		$author = $_POST['author'];
+		$lang = $_POST['lang'];
+
+		$sql = "UPDATE `myLibrary`.`books` SET `name` = :bookName, `year` = :year, `pagesCount` = :pagesCount, `rating` = :rating, `publishers_id` = :publisher, `authors_id` = :author, `langs_id` = :lang WHERE (`idbook` = :bookId);";
+		try {
+			$result = $this->db->execPDO($sql, [$bookName, $year, $pagesCount, $rating, $publisher, $author, $lang, $bookId]);
+			if($result)
+			{
+				$_SESSION['REDIRECT']['MESSAGE_SUCCESS'] = 'Запись успешно обновлена';
+			}else
+			{
+				throw new \Exception();
+			}
+		}catch (\Exception $exception)
+		{
+			$_SESSION['REDIRECT']['MESSAGE_ALERT'] = 'Что-то пошло не так';
+		}
+		header('Location: /books/edit/?id=' . $bookId);
 	}
 }
