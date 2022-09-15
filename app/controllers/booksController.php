@@ -33,7 +33,14 @@ class booksController extends Controller
 	public function editBookAction()
 	{
 		$response['USER'] = $this->model->setHeaderResults();
-		$response[] = $this->model->editBook();
+		$this->model->editBook();
 		self::$view->render('editbook', true, $response);
+	}
+
+	public function getMyBooksAction()
+	{
+		$response['USER'] = $this->model->setHeaderResults();
+		$response['BOOKS'] = $this->model->getMyBooks();
+		self::$view->render('mybooks', true, $response);
 	}
 }

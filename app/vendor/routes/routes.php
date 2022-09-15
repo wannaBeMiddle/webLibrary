@@ -55,4 +55,24 @@ return [
 		'action' => 'editBook',
 		'notAuthAccess' => false
 	],
+	'/users/' => [
+		'controller' => 'users',
+		'action' => 'index',
+		'notAuthAccess' => false
+	],
+	'/users/edit/' => [
+		'controller' => 'users',
+		'action' => 'edit',
+		'notAuthAccess' => false
+	],
+	'/users/edit/do/' => [
+		'controller' => 'users',
+		'action' => 'editUser',
+		'notAuthAccess' => false
+	],
+	'/books/myBooks/' => [
+		'controller' => 'books',
+		'action' => 'getMyBooks',
+		'notAuthAccess' => false
+	],
 ];

@@ -43,13 +43,12 @@
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <?if($arResult['USER']['permissions'] == 1):?>
                                 <li><a class="dropdown-item" href="/books/">Учёт книг</a></li>
-                                <li><a class="dropdown-item" href="#">Пользователи</a></li>
+                                <li><a class="dropdown-item" href="/users/">Пользователи</a></li>
                                 <li><hr class="dropdown-divider"></li>
                             <?endif;?>
                             <li><a class="dropdown-item" href="#">Настройки</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#">Мои книги</a></li>
-                            <li><a class="dropdown-item" href="#">Забронировать книгу</a></li>
+                            <li><a class="dropdown-item" href="/books/myBooks/">Мои книги</a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href="/auth/logout/">Выйти</a></li>
                         </ul>
