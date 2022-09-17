@@ -75,4 +75,9 @@ return [
 		'action' => 'getMyBooks',
 		'notAuthAccess' => false
 	],
+	'/publishers/' => [
+		'controller' => 'publishers',
+		'action' => 'index',
+		'notAuthAccess' => true
+	],
 ];

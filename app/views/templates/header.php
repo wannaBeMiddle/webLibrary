@@ -29,7 +29,7 @@
                     <a class="nav-link" href="#">Контакты</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Издательства</a>
+                    <a class="nav-link" href="/publishers/">Издательства</a>
                 </li>
                 <?if(!$arResult['USER']['AUTH']):?>
                     <li class="nav-item">
