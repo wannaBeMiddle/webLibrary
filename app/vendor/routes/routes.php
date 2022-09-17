@@ -80,4 +80,9 @@ return [
 		'action' => 'index',
 		'notAuthAccess' => true
 	],
+	'/contacts/' => [
+		'controller' => 'main',
+		'action' => 'contacts',
+		'notAuthAccess' => true
+	],
 ];

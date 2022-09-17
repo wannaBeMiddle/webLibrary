@@ -31,4 +31,10 @@ class mainController extends Controller
 	{
 		$this->model->getBook();
 	}
+
+	public function contactsAction()
+	{
+		$response['USER'] = $this->model->setHeaderResults();
+		self::$view->render('contacts', true, $response);
+	}
 }

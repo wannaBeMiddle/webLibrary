@@ -26,7 +26,7 @@
                     <a class="nav-link active" aria-current="page" href="/">Главная</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Контакты</a>
+                    <a class="nav-link" href="/contacts/">Контакты</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/publishers/">Издательства</a>
@@ -46,8 +46,6 @@
                                 <li><a class="dropdown-item" href="/users/">Пользователи</a></li>
                                 <li><hr class="dropdown-divider"></li>
                             <?endif;?>
-                            <li><a class="dropdown-item" href="#">Настройки</a></li>
-                            <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href="/books/myBooks/">Мои книги</a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href="/auth/logout/">Выйти</a></li>
